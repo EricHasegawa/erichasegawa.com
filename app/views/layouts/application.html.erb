@@ -22,7 +22,13 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="min-h-screen w-full">
+  <body class="min-h-screen w-full bg-[radial-gradient(circle,_#d1d5db_1.2px,_transparent_1px)] bg-[size:18px_18px] font-mono p-8">
+    <nav class="flex justify-between items-center mb-8">
+    <%= link_to root_path, class: "text-3xl font-bold text-gray-700 hover:opacity-70" do %>
+      erichasegawa.com
+    <% end %>
+      <%= button_to "Log out", session_path, method: :delete, class: "cursor-pointer hover:opacity-70" if authenticated? %>
+    </nav>
     <%= yield %>
   </body>
 </html>
