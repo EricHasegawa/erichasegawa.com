@@ -12,7 +12,7 @@ class RegistrationsController < ApplicationController
         redirect_to root_path, notice: 'User successfully signed up.'
       else
         flash[:alert] = @user.errors.full_messages.join("\n")
-        render :new
+        render :new, status: :unprocessable_entity
       end
     end
  
