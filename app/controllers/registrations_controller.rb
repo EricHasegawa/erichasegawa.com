@@ -1,24 +1,14 @@
 class RegistrationsController < ApplicationController
     allow_unauthenticated_access
-
     def new
       @user = User.new
     end
-
     def create
-      @user = User.new(user_params)
-      if @user.save
-        start_new_session_for @user
-        redirect_to root_path, notice: "User successfully signed up."
-      else
-        flash[:alert] = @user.errors.full_messages.join("\n")
-        render :new, status: :unprocessable_entity
-      end
+      flash[:alert] = "Sign-ups are currently disabled."
+      redirect_to new_registration_path, status: :forbidden
     end
-
     private
-
     def user_params
       params.require(:user).permit(:email_address, :password, :password_confirmation)
     end
-end
+  end

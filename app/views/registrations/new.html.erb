@@ -12,7 +12,12 @@
             class: "block shadow rounded-md border border-gray-400  px-3 py-2 mt-2 w-full" %>
         <%= form.password_field :password_confirmation, required: true, placeholder: "Confirm your password", 
             maxlength: 72, class: "block shadow rounded-md border border-gray-400 px-3 py-2 mt-2 w-full" %>
-        <%= form.submit "Sign up", class: " w-full rounded-lg py-3 px-5 bg-blue-600 text-white cursor-pointer mt-4" %>
+        <div class="w-full mt-4">
+            <div class="text-red-500 font-semibold">
+                Sign-ups are currently disabled.
+            </div>
+            <%= form.submit "Sign up", class: "w-full py-3 px-5 rounded-lg bg-blue-600/25 cursor-not-allowed text-black/50", disabled: true %>
+        </div>
         <div class="mt-4 text-sm text-gray-500">
             Already have an account?
             <%= link_to "Sign in", new_session_path, class: "text-gray-700 underline hover:no-underline" %>
