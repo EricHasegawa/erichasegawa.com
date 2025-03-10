@@ -1,0 +1,17 @@
+<div class="container mx-auto px-4">
+  <div class="flex items-center justify-between mb-6">
+    <h1 class="text-2xl font-bold">All Posts</h1>
+    <% if authenticated? %>
+      <%= link_to "Create Post", new_post_path, 
+          class: "bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600" %>
+    <% end %>
+  </div>
+
+  <% @posts.each do |post| %>
+    <%= link_to post, class: "block" do %>
+      <div class="border border-gray-200 p-4 mb-4 rounded bg-white hover:bg-gray-50">
+        <h2 class="text-xl font-semibold"><%= post.title %></h2>
+      </div>
+    <% end %>
+  <% end %>
+</div>

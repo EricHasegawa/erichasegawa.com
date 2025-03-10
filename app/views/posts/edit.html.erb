@@ -1,0 +1,25 @@
+<div class="container mx-auto px-4">
+  <h1 class="text-2xl font-bold mb-4">Edit Post</h1>
+  <div class="mb-4">
+    <%= link_to "Back to Posts", posts_path, class: "text-blue-500 hover:underline" %>
+  </div>
+
+
+  <%= form_with model: @post, local: true do |f| %>
+    <div class="space-y-4">
+      <div>
+        <%= f.label :title, class: "block font-semibold" %>
+        <%= f.text_field :title, class: "border p-2 w-full" %>
+      </div>
+
+      <div>
+        <%= f.label :content, class: "block font-semibold" %>
+        <%= f.rich_text_area :content, class: "w-full" %>
+      </div>
+
+      <div>
+        <%= f.submit "Update Post", class: "bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 cursor-pointer" %>
+      </div>
+    </div>
+  <% end %>
+</div>
