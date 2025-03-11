@@ -1,0 +1,17 @@
+<div class="text-xl font-semibold">Create a New Post</div>
+
+<%= form_with model: @post, local: true do |f| %>
+  <div class="space-y-4">
+    <div>
+      <%= f.text_field :title, placeholder: "Title", class: "border border-gray-300 p-2 w-full rounded-md bg-white" %>
+    </div>
+    
+    <div>
+      <%= f.rich_text_area :content, class: "w-full bg-white", placeholder: "Content goes here" %>
+    </div>
+    
+    <div>
+      <%= f.submit "Create Post", class: "border border-gray-300 p-2 rounded-md bg-white cursor-pointer hover:bg-gray-100" %>
+    </div>
+  </div>
+<% end %>
